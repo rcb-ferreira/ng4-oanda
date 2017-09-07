@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-authenticated',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthenticatedComponent implements OnInit {
 
-  constructor() { }
+  validUser: string;
+
+  constructor(private user: UserService) { }
 
   ngOnInit() {
+    this.validUser = this.user.getUserLoggedIn();
   }
 
 }

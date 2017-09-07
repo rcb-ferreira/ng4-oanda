@@ -9,9 +9,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Routing
 import { Routes, RouterModule } from "@angular/router";
+import { AppRoutingModule } from './app-routing.module';
+import { CanActivateRouteGuard } from './can-activate-route.guard';
 
 // Services
-import { AccountsService } from './services/accounts.service'
+import { AccountsService } from './services/accounts.service';
+import { UserService } from './services/user.service';
+import { AuthService } from './services/auth.service';
 
 // Components
 import { AppComponent } from './app.component';
@@ -19,11 +23,11 @@ import { LoginComponent } from './components/login/login.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AuthenticatedComponent } from './components/authenticated/authenticated.component';
 
-const routes: Routes = [
-  { path: '', component: LoginComponent},
-  { path: 'user', component: AuthenticatedComponent },
-  { path: '**', component: NotFoundComponent }
-];
+// const routes: Routes = [
+//   { path: '', component: LoginComponent},
+//   { path: 'user', component: AuthenticatedComponent },
+//   { path: '**', component: NotFoundComponent }
+// ];
 
 @NgModule({
   declarations: [
@@ -38,9 +42,9 @@ const routes: Routes = [
     HttpModule,
     MaterialModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(routes, { useHash: false })
+    AppRoutingModule
   ],
-  providers: [AccountsService],
+  providers: [AuthService, UserService, CanActivateRouteGuard, AccountsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
