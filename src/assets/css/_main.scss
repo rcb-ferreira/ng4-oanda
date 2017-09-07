@@ -1,0 +1,30 @@
+body {
+  background: #FFF;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Roboto', sans-serif;
+}
+
+app-root {
+	display: block;
+    height: 100vh;
+}
+
+app-login {
+	display: block;
+    width: 30%;
+    margin: 12em auto;
+}
+
+.mat-form-field {
+	width: 100%;
+}
+
+.btn-lg {
+	padding: 10px !important;
+    font-size: 30px !important;
+}
+
+.btn-full {
+	width: 100%;
+}
