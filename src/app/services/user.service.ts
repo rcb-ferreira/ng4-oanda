@@ -4,23 +4,30 @@ import { Injectable } from '@angular/core';
 export class UserService {
 
   private isUserLoggedIn;
-  public username;
+  public accountId;
 
   constructor() {
     this.isUserLoggedIn = false;
   }
 
   setUserLoggedIn(user, token) {
-    this.username = 'Rui Ferreira';
+
+    this.accountId = 0;
+    user.forEach(element => {
+      
+      if (element.accounts.id) {
+        this.accountId = element.accounts.id;
+      }
+    });
 
     localStorage.setItem('token', token);
-    localStorage.setItem('user', this.username);
+    localStorage.setItem('account_id', this.accountId);
 
-    this.isUserLoggedIn = true;
+    this.isUserLoggedIn = false;
     
   }
 
   getUserLoggedIn() {
-    return localStorage.getItem('user');
+    return localStorage.getItem('account_id');
   }
 }

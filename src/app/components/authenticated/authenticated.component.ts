@@ -8,12 +8,12 @@ import { UserService } from '../../services/user.service';
 })
 export class AuthenticatedComponent implements OnInit {
 
-  validUser: string;
+  accountId: any;
 
   constructor(private user: UserService) { }
 
   ngOnInit() {
-    this.validUser = this.user.getUserLoggedIn();
+    this.accountId = this.user.getUserLoggedIn();
   }
 
 }
