@@ -11,6 +11,7 @@ export class AuthenticatedComponent implements OnInit {
 
   accountId: any;
   loadingInstrument: boolean;
+  token: string;
 
   selectedInstrument:string;
   selectedGranularity: string;
@@ -49,9 +50,10 @@ export class AuthenticatedComponent implements OnInit {
     ];
 
     // Add default param to build graph with.
-    this.selectedGranularity = "M5";
+    this.selectedGranularity = "S5";
     this.selectedInstrument = "EUR_USD";
 
+    this.token = this.user.getToken();
     this.listInstruments();
   }
 
@@ -59,7 +61,7 @@ export class AuthenticatedComponent implements OnInit {
   listInstruments() {
     
     this.loadingInstrument = true;
-    this.api.getInstruments(this.user.getToken(), this.user.getAccountId())
+    this.api.getInstruments(this.token, this.user.getAccountId())
       .subscribe(result => {
         this.instruments = result;
         this.loadingInstrument = false;

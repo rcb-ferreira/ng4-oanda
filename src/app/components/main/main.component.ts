@@ -1,4 +1,5 @@
 import { Component, OnInit, Input} from '@angular/core';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-main',
@@ -7,15 +8,31 @@ import { Component, OnInit, Input} from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  @Input() instrument:string = '';
+  loading: boolean;
+  candles: any;
+  @Input() instrument: string = '';
   @Input() granularity: string = '';
+  @Input() token: string = '';
 
-  constructor() { }
+  constructor(private api: ApiService) { }
 
   ngOnInit() {
-    console.log(this.instrument);
-    console.log(this.granularity);
-    // this.listInstruments = JSON.parse(this.instruments);
+    this.loading = false;
+    this.listCandles(this.token, this.instrument, this.granularity, 100);
+  }
+
+  listCandles(token, instrument, granularity, count) {
+
+    this.loading = true;
+    this.api.getCandles(token, instrument, granularity, count)
+      .subscribe(result => {
+        this.candles = result;
+        this.loading = false;
+      },
+      error => {
+        console.error(error);
+        this.loading = false;
+      });
   }
 
 }
