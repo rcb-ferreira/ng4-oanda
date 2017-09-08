@@ -29,14 +29,15 @@
             </md-select>
 
             <span class="btn-wrapper">
-          <button md-raised-button color="primary">Buy</button>
-          <button md-raised-button color="accent">Sell</button>
-        </span>
+              <button md-raised-button color="primary">Buy</button>
+              <button md-raised-button color="accent">Sell</button>
+            </span>
           </md-card-title>
         </md-card-header>
-      </md-card>
-
-      <app-main class="main-content" instruments={{instruments}}>
+      </md-card>  
+      <app-main class="main-content" 
+        instrument={{selectedInstrument}} 
+        granularity={{selectedGranularity}}>
         </app-main>
     </div>
   </md-sidenav-container>

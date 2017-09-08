@@ -7,16 +7,14 @@ import { Component, OnInit, Input} from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  selectedInstrument: string;
-  listInstruments: any;
-
-  @Input() instruments;
+  @Input() instrument:string = '';
+  @Input() granularity: string = '';
 
   constructor() { }
 
   ngOnInit() {
-    console.log(this.instruments);
-    
+    console.log(this.instrument);
+    console.log(this.granularity);
     // this.listInstruments = JSON.parse(this.instruments);
   }
 
