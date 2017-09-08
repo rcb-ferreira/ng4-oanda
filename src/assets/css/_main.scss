@@ -12,7 +12,7 @@ app-root {
 
 app-login {
 	display: block;
-    width: 30%;
+    width: 50%;
     margin: 12em auto;
 }
 
@@ -20,11 +20,11 @@ app-login {
 	width: 100%;
 }
 
-.btn-lg {
-	padding: 10px !important;
-    font-size: 30px !important;
+.btn-add {
+	top: -5px;
 }
 
-.btn-full {
-	width: 100%;
+.mat-progress-spinner {
+    height: 22px !important;
+    width: 22px !important;
 }

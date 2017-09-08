@@ -1,10 +1,10 @@
 <form class="example-form">
   <md-form-field class="example-full-width">
-    <input mdInput name="token" placeholder="Add token" [(ngModel)]="token">
+    <span mdPrefix>Add &nbsp;</span>
+    <input type="text" mdInput name="token" placeholder="Token" [(ngModel)]="token">
+    <button mdSuffix class="btn-add" md-mini-fab [disabled]="!token">
+      <md-spinner *ngIf="loading"></md-spinner>
+      <md-icon *ngIf="!loading" aria-label="Add token button" (click)="loginUser(token)">add</md-icon>
+    </button>
   </md-form-field>
-  <md-card class="login-card">
-    <md-card-content>
-      <button class="btn-lg btn-full" color="primary" md-raised-button (click)="loginUser(token)" [disabled]="!token">Sign In</button>
-    </md-card-content>
-  </md-card>
 </form>
