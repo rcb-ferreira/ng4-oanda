@@ -28,3 +28,15 @@ app-login {
     height: 22px !important;
     width: 22px !important;
 }
+
+.example-icon {
+  padding: 0 14px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.cdk-global-overlay-wrapper, .cdk-overlay-container {
+    top: 50px !important;
+}

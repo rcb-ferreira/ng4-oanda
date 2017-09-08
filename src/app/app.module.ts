@@ -22,6 +22,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AuthenticatedComponent } from './components/authenticated/authenticated.component';
+import { HeaderComponent } from './components/header/header.component';
 
 // const routes: Routes = [
 //   { path: '', component: LoginComponent},
@@ -34,7 +35,8 @@ import { AuthenticatedComponent } from './components/authenticated/authenticated
     AppComponent,
     LoginComponent,
     NotFoundComponent,
-    AuthenticatedComponent
+    AuthenticatedComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

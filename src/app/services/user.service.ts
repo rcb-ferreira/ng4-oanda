@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class UserService {
@@ -6,7 +7,7 @@ export class UserService {
   private isUserLoggedIn;
   public accountId;
 
-  constructor() {
+  constructor(private router: Router) {
     this.isUserLoggedIn = false;
   }
 
@@ -29,5 +30,12 @@ export class UserService {
 
   getUserLoggedIn() {
     return localStorage.getItem('account_id');
+  }
+
+  signOut() {
+    localStorage.setItem('token', '');
+    localStorage.setItem('account_id', '');
+
+    this.router.navigate(['login']);
   }
 }

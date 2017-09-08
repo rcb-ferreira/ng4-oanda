@@ -1,0 +1,12 @@
+<md-toolbar color="primary">
+  <md-icon class="example-icon">verified_user</md-icon>
+  <span>Account Id - {{accountId}}</span>
+  <span class="example-spacer"></span>
+  <button md-button [mdMenuTriggerFor]="appMenu"><md-icon class="example-icon">account_circle</md-icon></button>
+</md-toolbar>
+
+<md-menu #appMenu="mdMenu">
+  <button md-menu-item (click)="signOut()">
+    <md-icon>exit_to_app</md-icon><span>Sign out</span>
+  </button>
+</md-menu>
