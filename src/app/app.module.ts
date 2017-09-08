@@ -23,6 +23,7 @@ import { LoginComponent } from './components/login/login.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AuthenticatedComponent } from './components/authenticated/authenticated.component';
 import { HeaderComponent } from './components/header/header.component';
+import { MainComponent } from './components/main/main.component';
 
 // const routes: Routes = [
 //   { path: '', component: LoginComponent},
@@ -36,7 +37,8 @@ import { HeaderComponent } from './components/header/header.component';
     LoginComponent,
     NotFoundComponent,
     AuthenticatedComponent,
-    HeaderComponent
+    HeaderComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,

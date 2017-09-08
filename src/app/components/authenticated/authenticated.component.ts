@@ -9,7 +9,12 @@ import { UserService } from '../../services/user.service';
 export class AuthenticatedComponent implements OnInit {
 
   accountId: any;
-
+  instruments = [
+    {
+      name: 'EUR_USD',
+      updated: new Date('1/1/16'),
+    }
+  ];
   constructor(private user: UserService) { }
 
   ngOnInit() {
