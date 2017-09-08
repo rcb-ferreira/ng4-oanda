@@ -8,13 +8,13 @@ html, body, material-app, md-sidenav-container, .main-content {
 
 app-root {
 	display: block;
-    height: 100vh;
+  height: 100vh;
 }
 
 app-login {
 	display: block;
-    width: 50%;
-    margin: 12em auto;
+  width: 50%;
+  margin: 12em auto;
 }
 
 .mat-form-field {
@@ -51,15 +51,11 @@ md-sidenav {
 }
 
 // Main content
-// .example-card {
-//   width: 100%;
-// }
-
-.example-header-image {
-//   background-image: url('../../../assets/img/examples/shiba1.jpg');
-  background-size: cover;
+.mat-card-header-text {
+  width: 100%;
 }
 
-// .main-content {
-//     width: 80%;
-// }
+.btn-wrapper {
+  float: right;
+  margin-top: 10px;
+}

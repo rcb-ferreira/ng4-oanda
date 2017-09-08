@@ -13,9 +13,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { CanActivateRouteGuard } from './can-activate-route.guard';
 
 // Services
-import { AccountsService } from './services/accounts.service';
 import { UserService } from './services/user.service';
 import { AuthService } from './services/auth.service';
+import { ApiService } from './services/api.service';
 
 // Components
 import { AppComponent } from './app.component';
@@ -24,12 +24,6 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AuthenticatedComponent } from './components/authenticated/authenticated.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MainComponent } from './components/main/main.component';
-
-// const routes: Routes = [
-//   { path: '', component: LoginComponent},
-//   { path: 'user', component: AuthenticatedComponent },
-//   { path: '**', component: NotFoundComponent }
-// ];
 
 @NgModule({
   declarations: [
@@ -48,7 +42,7 @@ import { MainComponent } from './components/main/main.component';
     BrowserAnimationsModule,
     AppRoutingModule
   ],
-  providers: [AuthService, UserService, CanActivateRouteGuard, AccountsService],
+  providers: [AuthService, ApiService, UserService, CanActivateRouteGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

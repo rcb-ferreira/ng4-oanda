@@ -1,24 +1,18 @@
 import { Injectable } from '@angular/core';
+import { AuthService } from './auth.service';
 
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 
-import { userItem } from '../models/user';
-import { UserService } from './user.service';
+import { instrumentItem } from '../models/instrument';
 
 @Injectable()
-export class AuthService {
+export class ApiService {
 
-  constructor(private http: Http, private user: UserService) { }
+  constructor(private http: Http) { }
 
-  isUserAuthenticated() {
-
-    return this.user.getToken() ? true : false;
-  }
-
-  authenticate(token: string) {
-
+  getInstruments(token, accountId) {
     const headers = new Headers({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
@@ -26,14 +20,16 @@ export class AuthService {
 
     const options = new RequestOptions({ headers: headers });
 
-    let apiURL = `https://api-fxpractice.oanda.com/v3/accounts`;
+    let apiURL = `https://api-fxpractice.oanda.com/v3/accounts/${accountId}/instruments`;
 
     return this.http.get(apiURL, options)
       .map(res => {
-        
-        return res.json().accounts.map(item => {
-          return new userItem(
-            item,
+
+        return res.json().instruments.map(item => {
+          return new instrumentItem(
+            item.name,
+            item.type,
+            item.displayName
           );
         });
       })

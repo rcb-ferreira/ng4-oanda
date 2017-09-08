@@ -21,20 +21,24 @@ export class UserService {
       }
     });
 
-    localStorage.setItem('token', token);
-    localStorage.setItem('account_id', this.accountId);
+    localStorage.setItem('trading.token', token);
+    localStorage.setItem('trading.account_id', this.accountId);
 
     this.isUserLoggedIn = false;
     
   }
 
-  getUserLoggedIn() {
-    return localStorage.getItem('account_id');
+  getAccountId() {
+    return localStorage.getItem('trading.account_id');
+  }
+
+  getToken() {
+    return localStorage.getItem('trading.token');
   }
 
   signOut() {
-    localStorage.setItem('token', '');
-    localStorage.setItem('account_id', '');
+    localStorage.setItem('trading.token', '');
+    localStorage.setItem('trading.account_id', '');
 
     this.router.navigate(['login']);
   }

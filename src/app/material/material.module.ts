@@ -9,7 +9,8 @@ import { MdButtonModule,
   MdMenuModule,
   MdSidenavModule,
   MdCardModule,
-  MdListModule } from '@angular/material';
+  MdListModule,
+  MdSelectModule } from '@angular/material';
 
 @NgModule({
   imports: [CommonModule, 
@@ -22,7 +23,8 @@ import { MdButtonModule,
     MdMenuModule,
     MdSidenavModule,
     MdCardModule,
-    MdListModule],
+    MdListModule,
+    MdSelectModule],
   exports: [CommonModule, 
     MdButtonModule, 
     MdCheckboxModule, 
@@ -33,6 +35,7 @@ import { MdButtonModule,
     MdMenuModule,
     MdSidenavModule,
     MdCardModule,
-    MdListModule],
+    MdListModule,
+    MdSelectModule],
 })
 export class MaterialModule { }

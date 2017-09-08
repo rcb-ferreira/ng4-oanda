@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 
 @Component({
   selector: 'app-main',
@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
+  selectedInstrument: string;
+  listInstruments: any;
+
+  @Input() instruments;
+
   constructor() { }
 
   ngOnInit() {
+    console.log(this.instruments);
+    
+    // this.listInstruments = JSON.parse(this.instruments);
   }
 
 }

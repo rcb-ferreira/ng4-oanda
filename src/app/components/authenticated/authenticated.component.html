@@ -5,14 +5,38 @@
     <md-sidenav mode="side" opened="true">
       <md-list>
         <h3 md-subheader>Instrument</h3>
-        <md-list-item *ngFor="let instrument of instruments">
+        <md-list-item>
           <md-icon md-list-icon>timeline</md-icon>
-          <h4 md-line>{{instrument.name}}</h4>
-          <p md-line> {{instrument.updated | date}} </p>
+          <h4 md-line>{{selectedInstrument}}</h4>
         </md-list-item>
       </md-list>
     </md-sidenav>
 
-    <app-main class="main-content">
-      </app-main>
+    <div class="main-content">
+      <md-card class="example-card">
+        <md-card-header>
+          <md-card-title>
+            <md-select placeholder="Instrument" [(ngModel)]="selectedInstrument" name="instrument">
+              <md-option *ngFor="let instrument of instruments" [value]="instrument.name">
+                {{instrument.name}}
+              </md-option>
+            </md-select>
+            
+            <md-select placeholder="Granularities" [(ngModel)]="selectedGranularity" name="granularities">
+              <md-option *ngFor="let granularity of granularities" [value]="granularity">
+                {{granularity}}
+              </md-option>
+            </md-select>
+
+            <span class="btn-wrapper">
+          <button md-raised-button color="primary">Buy</button>
+          <button md-raised-button color="accent">Sell</button>
+        </span>
+          </md-card-title>
+        </md-card-header>
+      </md-card>
+
+      <app-main class="main-content" instruments={{instruments}}>
+        </app-main>
+    </div>
   </md-sidenav-container>
