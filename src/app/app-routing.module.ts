@@ -15,7 +15,7 @@ const routes: Routes = [
         component: AuthenticatedComponent,
         canActivate: [CanActivateRouteGuard]
     },
-    { path: '**', component: NotFoundComponent }
+    { path: '**', redirectTo: 'login'}
 ];
 
 @NgModule({
