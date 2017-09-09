@@ -37,3 +37,7 @@ path.candle.down {
 .d3-chart .axis text {
   fill: #999;
 }
+
+.mat-tab-body-wrapper {
+    padding: 20px;
+}

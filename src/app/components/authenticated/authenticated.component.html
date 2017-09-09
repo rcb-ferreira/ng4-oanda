@@ -36,6 +36,14 @@
         </md-card-header>
       </md-card>  
 
-      <app-barchart *ngIf="chartData" [data]="chartData"></app-barchart>
+      <md-tab-group>
+        <md-tab label="Candles">
+          <app-barchart *ngIf="chartData" [data]="chartData"></app-barchart>
+        </md-tab>
+        <md-tab label="Chart">
+          Any Chart can come here...
+        </md-tab>
+      </md-tab-group>
+      
     </div>
   </md-sidenav-container>
