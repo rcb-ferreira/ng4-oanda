@@ -18,7 +18,7 @@ export class MainComponent implements OnInit {
 
   ngOnInit() {
     this.loading = false;
-    this.listCandles(this.token, this.instrument, this.granularity, 100);
+    // this.listCandles(this.token, this.instrument, this.granularity, 100);
   }
 
   listCandles(token, instrument, granularity, count) {

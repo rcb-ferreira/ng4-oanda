@@ -35,10 +35,7 @@
           </md-card-title>
         </md-card-header>
       </md-card>  
-      <app-main class="main-content" 
-        instrument={{selectedInstrument}} 
-        granularity={{selectedGranularity}}
-        token={{token}}>
-        </app-main>
+
+      <app-barchart *ngIf="chartData" [data]="chartData"></app-barchart>
     </div>
   </md-sidenav-container>

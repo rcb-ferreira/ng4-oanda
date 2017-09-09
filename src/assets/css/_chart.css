@@ -23,3 +23,17 @@ path.candle.down {
     fill: #FF0000;
     stroke: #FF0000;
 }
+
+.d3-chart {
+  width: 100%;
+  height: 400px;
+}
+
+.d3-chart .axis path,
+.d3-chart .axis line {
+  stroke: #999;
+}
+
+.d3-chart .axis text {
+  fill: #999;
+}

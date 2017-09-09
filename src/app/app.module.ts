@@ -24,6 +24,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AuthenticatedComponent } from './components/authenticated/authenticated.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MainComponent } from './components/main/main.component';
+import { BarchartComponent } from './components/shared/barchart/barchart.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { MainComponent } from './components/main/main.component';
     NotFoundComponent,
     AuthenticatedComponent,
     HeaderComponent,
-    MainComponent
+    MainComponent,
+    BarchartComponent
   ],
   imports: [
     BrowserModule,
