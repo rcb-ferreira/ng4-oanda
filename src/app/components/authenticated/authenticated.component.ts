@@ -17,7 +17,7 @@ export class AuthenticatedComponent implements OnInit {
   selectedGranularity: string;
   instruments: any;
   granularities: any;
-
+  
   constructor(private user: UserService, private api: ApiService) { }
 
   ngOnInit() {
@@ -49,19 +49,15 @@ export class AuthenticatedComponent implements OnInit {
       "M"
     ];
 
+    // Default instruments array to prevent jumping.
+    this.instruments = [{ "name": "EUR_USD", "type": "CURRENCY", "displayName": "EUR/USD" }];
+
     // Add default param to build graph with.
     this.selectedGranularity = "S5";
     this.selectedInstrument = "EUR_USD";
 
     this.token = this.user.getToken();
     this.listInstruments();
-
-    setTimeout(() => {
-      this.generateData();
-
-      // change the data periodically
-      setInterval(() => this.generateData(), 3000);
-    }, 1000);
   }
 
   listInstruments() {
@@ -87,5 +83,15 @@ export class AuthenticatedComponent implements OnInit {
         Math.floor(Math.random() * 100)
       ]);
     }
+  }
+
+  selectChange() {
+    setTimeout(() => {
+      this.generateData();
+
+      // change the data periodically
+      setInterval(() => this.generateData(), 3000);
+    }, 1000);
+
   }
 }

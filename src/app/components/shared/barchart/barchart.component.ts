@@ -1,19 +1,3 @@
-// import { Component, OnInit } from '@angular/core';
-
-// @Component({
-//   selector: 'app-barchart',
-//   templateUrl: './barchart.component.html',
-//   styleUrls: ['./barchart.component.sass']
-// })
-// export class BarchartComponent implements OnInit {
-
-//   constructor() { }
-
-//   ngOnInit() {
-//   }
-
-// }
-
 import { Component, OnInit, OnChanges, ViewChild, ElementRef, Input, ViewEncapsulation } from '@angular/core';
 import * as d3 from 'd3';
 
@@ -124,4 +108,3 @@ export class BarchartComponent implements OnInit, OnChanges {
       .attr('height', d => this.height - this.yScale(d[1]));
   }
 }
-

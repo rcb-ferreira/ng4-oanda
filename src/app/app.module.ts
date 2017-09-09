@@ -25,6 +25,7 @@ import { AuthenticatedComponent } from './components/authenticated/authenticated
 import { HeaderComponent } from './components/header/header.component';
 import { MainComponent } from './components/main/main.component';
 import { BarchartComponent } from './components/shared/barchart/barchart.component';
+import { CandlestickComponent } from './components/shared/candlestick/candlestick.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { BarchartComponent } from './components/shared/barchart/barchart.compone
     AuthenticatedComponent,
     HeaderComponent,
     MainComponent,
-    BarchartComponent
+    BarchartComponent,
+    CandlestickComponent
   ],
   imports: [
     BrowserModule,
