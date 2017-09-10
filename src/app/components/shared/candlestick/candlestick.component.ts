@@ -39,7 +39,7 @@ export class CandlestickComponent implements OnInit, OnChanges {
         yAxis: {
           axisLabel: 'Stock Price',
           tickFormat: function (d) {
-            return 'R' + d3.format(',.1f')(d);
+            return 'R' + d3.format(',.2f')(d);
           },
           showMaxMin: false
         },
@@ -61,6 +61,8 @@ export class CandlestickComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
+
+    console.log('onChange', this.candles);
     // if (this.chart) {
     //   this.updateChart();
     // }

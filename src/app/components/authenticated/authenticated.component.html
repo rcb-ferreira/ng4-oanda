@@ -4,7 +4,6 @@
   <md-sidenav-container>
     <md-sidenav mode="side" opened="true">
       <md-list>
-        <h3 md-subheader>Instrument</h3>
         <md-list-item>
           <md-icon md-list-icon>timeline</md-icon>
           <h4 md-line>{{selectedInstrument}}</h4>
@@ -16,13 +15,13 @@
       <md-card class="example-card">
         <md-card-header>
           <md-card-title>
-            <md-select placeholder="Instrument" [(ngModel)]="selectedInstrument" name="instrument">
+            <md-select placeholder="Instrument" [(ngModel)]="selectedInstrument" (change)="toggleChart()" name="instrument">
               <md-option *ngFor="let instrument of instruments" [value]="instrument.name">
                 {{instrument.name}}
               </md-option>
             </md-select>
             
-            <md-select placeholder="Granularities" [(ngModel)]="selectedGranularity" name="granularities">
+            <md-select placeholder="Granularities" [(ngModel)]="selectedGranularity" (change)="toggleChart()" name="granularities">
               <md-option *ngFor="let granularity of granularities" [value]="granularity">
                 {{granularity}}
               </md-option>
@@ -38,7 +37,7 @@
 
       <md-tab-group>
         <md-tab label="Candles" >
-            <app-candlestick [candles]="candles">
+            <app-candlestick *ngIf="!loadingCandles" [candles]="candles">
               </app-candlestick>
         </md-tab>
         <md-tab label="Chart">

@@ -51,8 +51,12 @@ export class ApiService {
         
         return res.json().candles.map(item => {
           return new candleItem(
-            item.time,
-            item.bid
+            new Date(item.time).getTime(),
+            parseFloat(item.bid.o),
+            parseFloat(item.bid.h),
+            parseFloat(item.bid.l),
+            parseFloat(item.bid.c),
+            item.volume
           );
         });
       })
