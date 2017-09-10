@@ -1,6 +1,6 @@
 webpackJsonp([2,4],{
 
-/***/ 19:
+/***/ 15:
 /***/ (function(module, exports) {
 
 /*
@@ -83,7 +83,7 @@ function toComment(sourceMap) {
 
 /***/ }),
 
-/***/ 335:
+/***/ 166:
 /***/ (function(module, exports) {
 
 /*
@@ -336,16 +336,16 @@ function updateLink(linkElement, obj) {
 
 /***/ }),
 
-/***/ 339:
+/***/ 170:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(418);
+var content = __webpack_require__(249);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(335)(content, {});
+var update = __webpack_require__(166)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -363,16 +363,16 @@ if(false) {
 
 /***/ }),
 
-/***/ 340:
+/***/ 171:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(417);
+var content = __webpack_require__(248);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(335)(content, {});
+var update = __webpack_require__(166)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -390,10 +390,10 @@ if(false) {
 
 /***/ }),
 
-/***/ 416:
+/***/ 247:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(19)(false);
+exports = module.exports = __webpack_require__(15)(false);
 // imports
 
 
@@ -405,10 +405,10 @@ exports.push([module.i, ".mat-elevation-z0{box-shadow:0 0 0 0 rgba(0,0,0,.2),0 0
 
 /***/ }),
 
-/***/ 417:
+/***/ 248:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(19)(false);
+exports = module.exports = __webpack_require__(15)(false);
 // imports
 
 
@@ -420,12 +420,12 @@ exports.push([module.i, "/* nvd3 version 1.8.6 (https://github.com/novus/nvd3) 2
 
 /***/ }),
 
-/***/ 418:
+/***/ 249:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(19)(false);
+exports = module.exports = __webpack_require__(15)(false);
 // imports
-exports.i(__webpack_require__(416), "");
+exports.i(__webpack_require__(247), "");
 
 // module
 exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\ntext {\n  fill: #000; }\n\n.bar {\n  fill: #0080FF; }\n\npath.candle {\n  stroke: #000000; }\n\npath.candle.body {\n  stroke-width: 0; }\n\npath.candle.up {\n  fill: #00AA00;\n  stroke: #00AA00; }\n\npath.candle.down {\n  fill: #FF0000;\n  stroke: #FF0000; }\n\n.d3-chart {\n  width: 100%;\n  height: 400px; }\n\n.d3-chart .axis path,\n.d3-chart .axis line {\n  stroke: #999; }\n\n.d3-chart .axis text {\n  fill: #999; }\n\n.mat-tab-body-wrapper {\n  padding: 20px; }\n\n.btn-reset {\n  margin-left: 10px !important; }\n\n.chart-card {\n  padding: 0px !important; }\n\n.chart-progress {\n  margin-top: -5px !important; }\n\nhtml, body, material-app, md-sidenav-container, .main-content {\n  margin: 0;\n  width: 100%;\n  height: 100%;\n  -webkit-font-smoothing: antialiased;\n  font-family: 'Roboto', sans-serif; }\n\napp-root {\n  display: block;\n  height: 100vh; }\n\napp-login {\n  display: block;\n  width: 50%;\n  margin: 12em auto; }\n\n.mat-form-field {\n  width: 100%; }\n\n.btn-add {\n  top: -5px; }\n\n.mat-progress-spinner {\n  height: 22px !important;\n  width: 22px !important; }\n\n.example-icon {\n  padding: 0 14px; }\n\n.example-spacer {\n  -webkit-box-flex: 1;\n      -ms-flex: 1 1 auto;\n          flex: 1 1 auto; }\n\n.cdk-global-overlay-wrapper, .cdk-overlay-container {\n  top: 50px !important; }\n\n.mat-drawer {\n  background-color: #EFEFEF; }\n\nmd-sidenav {\n  width: 15%; }\n\n.mat-card-header-text {\n  width: 100%; }\n\n.btn-wrapper {\n  float: right;\n  margin-top: 10px; }\n", ""]);
@@ -435,14 +435,14 @@ exports.push([module.i, "/* You can add global styles to this file, and also imp
 
 /***/ }),
 
-/***/ 987:
+/***/ 529:
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(339);
-module.exports = __webpack_require__(340);
+__webpack_require__(170);
+module.exports = __webpack_require__(171);
 
 
 /***/ })
 
-},[987]);
+},[529]);
 //# sourceMappingURL=styles.bundle.js.map
