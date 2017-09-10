@@ -10,6 +10,7 @@ import { ApiService } from '../../services/api.service';
 export class AuthenticatedComponent implements OnInit {
   private chartData: Array<any>;
   accountId: any;
+  loading: boolean;
   loadingInstrument: boolean;
   loadingCandles: boolean;
   reset: boolean;
@@ -36,6 +37,7 @@ export class AuthenticatedComponent implements OnInit {
 
   ngOnInit() {
     this.accountId = this.user.getAccountId();
+    this.loadingInstrument = true;
     this.loadingInstrument = false;
     this.loadingCandles = false;
     this.reset = false;
@@ -79,16 +81,19 @@ export class AuthenticatedComponent implements OnInit {
   }
 
   getCandles(token, instrument, granularity, count, loader:boolean = true) {
-    this.loadingCandles = loader;
+    this.loading = true;
 
+    this.loadingCandles = loader;
     this.api.getCandles(token, instrument, granularity, count)
       .subscribe(result => {
         this.candles = result;
         this.loadingCandles = false;
+        this.loading = false;
       },
       error => {
         console.error(error);
         this.loadingCandles = false;
+        this.loading = false;
       });
   }
 

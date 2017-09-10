@@ -1,7 +1,10 @@
 <app-header accountId="{{accountId}}">
   </app-header>
 
+<md-progress-bar mode="indeterminate" *ngIf="loading" class="chart-progress"></md-progress-bar>
+
 <md-sidenav-container>
+  <!-- <md-progress-bar mode="indeterminate"></md-progress-bar> -->
   <md-sidenav mode="side" opened="true">
     <md-list>
       <md-list-item>

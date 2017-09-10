@@ -49,3 +49,7 @@ path.candle.down {
 .chart-card {
     padding: 0px !important;
 }
+
+.chart-progress {
+    margin-top: -5px !important;
+}
