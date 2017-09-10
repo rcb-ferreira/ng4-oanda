@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, ViewChild, ElementRef, Input, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, OnChanges, Input, ViewEncapsulation } from '@angular/core';
 declare let d3: any;
 
 @Component({
@@ -12,7 +12,10 @@ export class CandlestickComponent implements OnInit, OnChanges {
   options;
   data;
   
-  ngOnInit() {
+  ngOnInit() {}
+
+  // Listen to any changes and apply to chart
+  ngOnChanges() {
 
     this.options = {
       chart: {
@@ -31,7 +34,7 @@ export class CandlestickComponent implements OnInit, OnChanges {
         xAxis: {
           axisLabel: 'Dates',
           tickFormat: function (d) {
-            return d3.time.format('%b %d')(new Date(d));
+            return d3.time.format('%b %d/%y')(new Date(d));
           },
           showMaxMin: false
         },
@@ -39,7 +42,7 @@ export class CandlestickComponent implements OnInit, OnChanges {
         yAxis: {
           axisLabel: 'Stock Price',
           tickFormat: function (d) {
-            return 'R' + d3.format(',.2f')(d);
+            return '$ ' + d3.format(',.2f')(d);
           },
           showMaxMin: false
         },
@@ -54,18 +57,10 @@ export class CandlestickComponent implements OnInit, OnChanges {
         }
       }
     }
-    
+
     this.data = [{
       values: this.candles
     }];
-  }
-
-  ngOnChanges() {
-
-    console.log('onChange', this.candles);
-    // if (this.chart) {
-    //   this.updateChart();
-    // }
   }
 
 }

@@ -27,6 +27,12 @@
               </md-option>
             </md-select>
 
+            <md-select placeholder="Limit" [(ngModel)]="selectedCount" (change)="toggleChart()" name="limit">
+              <md-option *ngFor="let limit of countLimit" [value]="limit">
+                {{limit}}
+              </md-option>
+            </md-select>
+
             <span class="btn-wrapper">
               <button md-raised-button color="primary">Buy</button>
               <button md-raised-button color="accent">Sell</button>

@@ -18,39 +18,22 @@ export class AuthenticatedComponent implements OnInit {
   selectedGranularity: string;
   instruments: any;
   granularities: any;
+
+  selectedCount: number;
+  countLimit: Array<number> = [];
+
   candles: Array<any> = [];
   
-  constructor(private user: UserService, private api: ApiService) { }
+  constructor( 
+    private user: UserService, 
+    private api: ApiService) { }
 
   ngOnInit() {
     this.accountId = this.user.getAccountId();
     this.loadingInstrument = false;
     this.loadingCandles = false;
 
-    this.granularities = [
-      "S5",
-      "S10",
-      "S15",
-      "S30",
-      "M1",
-      "M2",
-      "M3",
-      "M4",
-      "M5",
-      "M10",
-      "M15",
-      "M30",
-      "H1",
-      "H2",
-      "H3",
-      "H4",
-      "H6",
-      "H8",
-      "H12",
-      "D",
-      "W",
-      "M"
-    ];
+    this.granularities = ["S5","S10","S15","S30","M1","M2","M3","M4","M5","M10","M15","M30","H1","H2","H3","H4","H6","H8","H12","D","W","M"];
 
     // Default instruments array to prevent jumping.
     this.instruments = [{ "name": "EUR_USD", "type": "CURRENCY", "displayName": "EUR/USD" }];
@@ -58,11 +41,16 @@ export class AuthenticatedComponent implements OnInit {
     // Add default param to build graph with.
     this.selectedGranularity = "S5";
     this.selectedInstrument = "EUR_USD";
+    this.selectedCount = 100;
+
+    // A quick and clean range counter to be used for dropdown.
+    for (let i = 10; i > 0; i--) {
+      this.countLimit.push(i*10);
+    }
 
     this.token = this.user.getToken();
     this.listInstruments();
-    this.getCandles(this.token, this.selectedInstrument, this.selectedGranularity, 100);
-
+    this.getCandles(this.token, this.selectedInstrument, this.selectedGranularity, this.selectedCount);
   }
 
   listInstruments() {
@@ -79,8 +67,8 @@ export class AuthenticatedComponent implements OnInit {
       });
   }
 
-  getCandles(token, instrument, granularity, count) {
-    this.loadingCandles = true;
+  getCandles(token, instrument, granularity, count, loader:boolean = true) {
+    this.loadingCandles = loader;
 
     this.api.getCandles(token, instrument, granularity, count)
       .subscribe(result => {
@@ -95,6 +83,6 @@ export class AuthenticatedComponent implements OnInit {
 
   // Trigger search
   toggleChart() {
-    this.getCandles(this.token, this.selectedInstrument, this.selectedGranularity, 100)
+    this.getCandles(this.token, this.selectedInstrument, this.selectedGranularity, this.selectedCount, false);
   }
 }
