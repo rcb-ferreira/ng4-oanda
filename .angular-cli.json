@@ -19,7 +19,8 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.sass"
+        "styles.sass",
+        "../node_modules/nvd3/build/nv.d3.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
