@@ -663,7 +663,6 @@ var CandlestickComponent = (function () {
     CandlestickComponent.prototype.ngOnInit = function () { };
     // Listen to any changes and apply to chart
     CandlestickComponent.prototype.ngOnChanges = function () {
-        console.log(this.candles);
         this.options = {
             chart: {
                 type: 'candlestickBarChart',
@@ -680,7 +679,7 @@ var CandlestickComponent = (function () {
                 xAxis: {
                     axisLabel: 'Dates',
                     tickFormat: function (d) {
-                        return d3.time.format('%b %d/%y')(new Date(d));
+                        return d3.time.format('%m/%d %H:%M:%S')(new Date(d));
                     },
                     showMaxMin: false
                 },
@@ -695,7 +694,7 @@ var CandlestickComponent = (function () {
                     enabled: true,
                     scaleExtent: [1, 10],
                     useFixedDomain: true,
-                    useNiceScale: true,
+                    useNiceScale: false,
                     horizontalOff: false,
                     verticalOff: false,
                     unzoomEventType: 'dblclick.zoom'
