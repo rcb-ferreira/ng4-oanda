@@ -16,8 +16,7 @@ export class CandlestickComponent implements OnInit, OnChanges {
 
   // Listen to any changes and apply to chart
   ngOnChanges() {
-    console.log(this.candles);
-    
+
     this.options = {
       chart: {
         type: 'candlestickBarChart',
@@ -35,7 +34,7 @@ export class CandlestickComponent implements OnInit, OnChanges {
         xAxis: {
           axisLabel: 'Dates',
           tickFormat: function (d) {
-            return d3.time.format('%b %d/%y')(new Date(d));
+            return d3.time.format('%m/%d %H:%M:%S')(new Date(d));
           },
           showMaxMin: false
         },
@@ -51,7 +50,7 @@ export class CandlestickComponent implements OnInit, OnChanges {
           enabled: true,
           scaleExtent: [1, 10],
           useFixedDomain: true,
-          useNiceScale: true,
+          useNiceScale: false,
           horizontalOff: false,
           verticalOff: false,
           unzoomEventType: 'dblclick.zoom'
