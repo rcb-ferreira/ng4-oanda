@@ -9,6 +9,7 @@ import { ApiService } from '../../services/api.service';
 })
 export class AuthenticatedComponent implements OnInit {
   private chartData: Array<any>;
+  private count: number;
   accountId: any;
   loading: boolean;
   loadingInstrument: boolean;
@@ -23,6 +24,7 @@ export class AuthenticatedComponent implements OnInit {
   selectedInstrument:string;
   selectedGranularity: string;
   selectedCount: number;
+  setSplice: number;
 
   instruments: any;
   granularities: any;
@@ -36,12 +38,13 @@ export class AuthenticatedComponent implements OnInit {
     private api: ApiService) { }
 
   ngOnInit() {
+    this.setSplice = 0;
+
     this.accountId = this.user.getAccountId();
     this.loadingInstrument = true;
     this.loadingInstrument = false;
     this.loadingCandles = false;
     this.reset = false;
-
     this.granularities = ["S5","S10","S15","S30","M1","M2","M3","M4","M5","M10","M15","M30","H1","H2","H3","H4","H6","H8","H12","D","W","M"];
 
     // Default instruments array to prevent jumping.
@@ -64,6 +67,15 @@ export class AuthenticatedComponent implements OnInit {
     this.token = this.user.getToken();
     this.listInstruments();
     this.getCandles(this.token, this.selectedInstrument, this.selectedGranularity, this.selectedCount);
+
+    // Fetch and update chart data every five seconds
+    setTimeout(() => {
+      this.count = 0;
+      setInterval(() => {
+
+        this.toggleInterval();
+      }, 5000);
+    }, 5000);
   }
 
   listInstruments() {
@@ -81,8 +93,8 @@ export class AuthenticatedComponent implements OnInit {
   }
 
   getCandles(token, instrument, granularity, count, loader:boolean = true) {
-    this.loading = true;
 
+    this.loading = true;
     this.loadingCandles = loader;
     this.api.getCandles(token, instrument, granularity, count)
       .subscribe(result => {
@@ -98,9 +110,15 @@ export class AuthenticatedComponent implements OnInit {
   }
 
   // Trigger search
-  toggleChart() {
-    this.reset = true;
+  toggleChart(setReset = true) {
+    this.count = 0;
+    this.reset = setReset;
     this.getCandles(this.token, this.selectedInstrument, this.selectedGranularity, this.selectedCount, false);
+  }
+
+  toggleInterval() {
+    this.count = this.count + 1;
+    this.getCandles(this.token, this.selectedInstrument, this.selectedGranularity, this.selectedCount + this.count, false);
   }
 
   resetChart() {

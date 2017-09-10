@@ -16,7 +16,8 @@ export class CandlestickComponent implements OnInit, OnChanges {
 
   // Listen to any changes and apply to chart
   ngOnChanges() {
-
+    console.log(this.candles);
+    
     this.options = {
       chart: {
         type: 'candlestickBarChart',
