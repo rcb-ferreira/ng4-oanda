@@ -2,7 +2,10 @@
   <md-icon class="example-icon">verified_user</md-icon>
   <span>Account Id - {{accountId}}</span>
   <span class="example-spacer"></span>
-  <button md-button [mdMenuTriggerFor]="appMenu"><md-icon class="example-icon">account_circle</md-icon></button>
+  <button md-button [mdMenuTriggerFor]="appMenu">
+    <md-icon class="dropdown-icon">account_circle</md-icon>
+    <md-icon class="dropdown-icon">arrow_drop_down</md-icon>
+  </button>
 </md-toolbar>
 
 <md-menu #appMenu="mdMenu">

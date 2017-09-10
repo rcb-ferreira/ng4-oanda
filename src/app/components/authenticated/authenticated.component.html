@@ -1,56 +1,63 @@
 <app-header accountId="{{accountId}}">
   </app-header>
 
-  <md-sidenav-container>
-    <md-sidenav mode="side" opened="true">
-      <md-list>
-        <md-list-item>
-          <md-icon md-list-icon>timeline</md-icon>
-          <h4 md-line>{{selectedInstrument}}</h4>
-        </md-list-item>
-      </md-list>
-    </md-sidenav>
+<md-sidenav-container>
+  <md-sidenav mode="side" opened="true">
+    <md-list>
+      <md-list-item>
+        <md-icon md-list-icon>timeline</md-icon>
+        <h4 md-line>{{selectedInstrument}}</h4>
+      </md-list-item>
+    </md-list>
+  </md-sidenav>
 
-    <div class="main-content">
-      <md-card class="example-card">
-        <md-card-header>
-          <md-card-title>
-            <md-select placeholder="Instrument" [(ngModel)]="selectedInstrument" (change)="toggleChart()" name="instrument">
-              <md-option *ngFor="let instrument of instruments" [value]="instrument.name">
-                {{instrument.name}}
-              </md-option>
-            </md-select>
-            
-            <md-select placeholder="Granularities" [(ngModel)]="selectedGranularity" (change)="toggleChart()" name="granularities">
-              <md-option *ngFor="let granularity of granularities" [value]="granularity">
-                {{granularity}}
-              </md-option>
-            </md-select>
+  <div class="main-content">
+    <md-card class="example-card">
+      <md-card-header>
+        <md-card-title>
+          <md-select placeholder="Instrument" [(ngModel)]="selectedInstrument" (change)="toggleChart()" name="instrument">
+            <md-option *ngFor="let instrument of instruments" [value]="instrument.name">
+              {{instrument.name}}
+            </md-option>
+          </md-select>
+          
+          <md-select placeholder="Granularities" [(ngModel)]="selectedGranularity" (change)="toggleChart()" name="granularities">
+            <md-option *ngFor="let granularity of granularities" [value]="granularity">
+              {{granularity}}
+            </md-option>
+          </md-select>
 
-            <md-select placeholder="Limit" [(ngModel)]="selectedCount" (change)="toggleChart()" name="limit">
-              <md-option *ngFor="let limit of countLimit" [value]="limit">
-                {{limit}}
-              </md-option>
-            </md-select>
+          <md-select placeholder="Limit" [(ngModel)]="selectedCount" (change)="toggleChart()" name="limit">
+            <md-option *ngFor="let limit of countLimit" [value]="limit">
+              {{limit}}
+            </md-option>
+          </md-select>
 
-            <span class="btn-wrapper">
-              <button md-raised-button color="primary">Buy</button>
-              <button md-raised-button color="accent">Sell</button>
-            </span>
-          </md-card-title>
-        </md-card-header>
-      </md-card>  
+          <button md-mini-fab class="btn-reset" *ngIf="reset" (click)="resetChart()">
+            <md-icon class="dropdown-icon">cached</md-icon>
+          </button>
 
-      <md-tab-group>
-        <md-tab label="Candles" >
+          <span class="btn-wrapper">
+            <button md-raised-button color="primary">Buy</button>
+            <button md-raised-button color="accent">Sell</button>
+          </span>
+        </md-card-title>
+      </md-card-header>
+    </md-card>  
+
+    <md-card class="chart-card">
+      <md-card-content>
+        <md-tab-group>
+          <md-tab label="Candles">
             <app-candlestick *ngIf="!loadingCandles" [candles]="candles">
-              </app-candlestick>
-        </md-tab>
-        <md-tab label="Chart">
+            </app-candlestick>
+          </md-tab>
+          <md-tab label="Chart">
             <app-barchart>
-              </app-barchart>
-        </md-tab>
-      </md-tab-group>
-      
-    </div>
-  </md-sidenav-container>
+            </app-barchart>
+          </md-tab>
+        </md-tab-group>
+      </md-card-content>
+    </md-card>
+  </div>
+</md-sidenav-container>

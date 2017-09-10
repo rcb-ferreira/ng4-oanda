@@ -41,3 +41,11 @@ path.candle.down {
 .mat-tab-body-wrapper {
     padding: 20px;
 }
+
+.btn-reset {
+    margin-left: 10px !important;
+}
+
+.chart-card {
+    padding: 0px !important;
+}

@@ -12,14 +12,20 @@ export class AuthenticatedComponent implements OnInit {
   accountId: any;
   loadingInstrument: boolean;
   loadingCandles: boolean;
+  reset: boolean;
   token: string;
+
+  defaultInstrument:string;
+  defaultGranularity: string;
+  defaultCount: number;
 
   selectedInstrument:string;
   selectedGranularity: string;
+  selectedCount: number;
+
   instruments: any;
   granularities: any;
 
-  selectedCount: number;
   countLimit: Array<number> = [];
 
   candles: Array<any> = [];
@@ -32,6 +38,7 @@ export class AuthenticatedComponent implements OnInit {
     this.accountId = this.user.getAccountId();
     this.loadingInstrument = false;
     this.loadingCandles = false;
+    this.reset = false;
 
     this.granularities = ["S5","S10","S15","S30","M1","M2","M3","M4","M5","M10","M15","M30","H1","H2","H3","H4","H6","H8","H12","D","W","M"];
 
@@ -39,9 +46,13 @@ export class AuthenticatedComponent implements OnInit {
     this.instruments = [{ "name": "EUR_USD", "type": "CURRENCY", "displayName": "EUR/USD" }];
 
     // Add default param to build graph with.
-    this.selectedGranularity = "S5";
-    this.selectedInstrument = "EUR_USD";
-    this.selectedCount = 100;
+    this.defaultGranularity = "S5";
+    this.defaultInstrument = "EUR_USD";
+    this.defaultCount = 100;
+
+    this.selectedGranularity = this.defaultGranularity;
+    this.selectedInstrument = this.defaultInstrument;
+    this.selectedCount = this.defaultCount;
 
     // A quick and clean range counter to be used for dropdown.
     for (let i = 10; i > 0; i--) {
@@ -83,6 +94,16 @@ export class AuthenticatedComponent implements OnInit {
 
   // Trigger search
   toggleChart() {
+    this.reset = true;
+    this.getCandles(this.token, this.selectedInstrument, this.selectedGranularity, this.selectedCount, false);
+  }
+
+  resetChart() {
+    this.reset = false;
+    this.selectedGranularity = this.defaultGranularity;
+    this.selectedInstrument = this.defaultInstrument;
+    this.selectedCount = this.defaultCount;
+
     this.getCandles(this.token, this.selectedInstrument, this.selectedGranularity, this.selectedCount, false);
   }
 }
