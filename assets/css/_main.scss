@@ -1,0 +1,62 @@
+html, body, material-app, md-sidenav-container, .main-content {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Roboto', sans-serif;
+}
+
+app-root {
+	display: block;
+  height: 100vh;
+}
+
+app-login {
+	display: block;
+  width: 50%;
+  margin: 12em auto;
+}
+
+.mat-form-field {
+	width: 100%;
+}
+
+.btn-add {
+	top: -5px;
+}
+
+.mat-progress-spinner {
+  height: 22px !important;
+  width: 22px !important;
+}
+
+// header
+.example-icon {
+  padding: 0 14px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.cdk-global-overlay-wrapper, .cdk-overlay-container {
+  top: 50px !important;
+}
+
+// Sidebar
+.mat-drawer {
+    background-color: #EFEFEF;
+}
+md-sidenav {
+  width: 15%;
+}
+
+// Main content
+.mat-card-header-text {
+  width: 100%;
+}
+
+.btn-wrapper {
+  float: right;
+  margin-top: 10px;
+}

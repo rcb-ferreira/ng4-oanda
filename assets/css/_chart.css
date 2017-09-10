@@ -1,0 +1,55 @@
+text {
+    fill: #000;
+}
+
+.bar {
+  fill: #0080FF
+}
+
+path.candle {
+    stroke: #000000;
+}
+
+path.candle.body {
+    stroke-width: 0;
+}
+
+path.candle.up {
+    fill: #00AA00;
+    stroke: #00AA00;
+}
+
+path.candle.down {
+    fill: #FF0000;
+    stroke: #FF0000;
+}
+
+.d3-chart {
+  width: 100%;
+  height: 400px;
+}
+
+.d3-chart .axis path,
+.d3-chart .axis line {
+  stroke: #999;
+}
+
+.d3-chart .axis text {
+  fill: #999;
+}
+
+.mat-tab-body-wrapper {
+    padding: 20px;
+}
+
+.btn-reset {
+    margin-left: 10px !important;
+}
+
+.chart-card {
+    padding: 0px !important;
+}
+
+.chart-progress {
+    margin-top: -5px !important;
+}
