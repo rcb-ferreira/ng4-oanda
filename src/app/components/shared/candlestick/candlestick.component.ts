@@ -31,7 +31,7 @@ export class CandlestickComponent implements OnInit, OnChanges {
         xAxis: {
           axisLabel: 'Dates',
           tickFormat: function (d) {
-            return d3.time.format("%Y-%m-%d")(new Date(+new Date() - (20000 * 86400000) + (d * 86400000)));
+            return d3.time.format('%b %d')(new Date(d));
           },
           showMaxMin: false
         },
