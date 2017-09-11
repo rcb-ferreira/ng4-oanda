@@ -38,13 +38,11 @@ export class AuthenticatedComponent implements OnInit {
     private api: ApiService) { }
 
   ngOnInit() {
-    this.setSplice = 0;
-
     this.accountId = this.user.getAccountId();
-    this.loadingInstrument = true;
-    this.loadingInstrument = false;
-    this.loadingCandles = false;
     this.reset = false;
+    this.loadingInstrument = true;
+    this.loadingCandles = false;
+    this.loadingInstrument = false;
     this.granularities = ["S5","S10","S15","S30","M1","M2","M3","M4","M5","M10","M15","M30","H1","H2","H3","H4","H6","H8","H12","D","W","M"];
 
     // Default instruments array to prevent jumping.
@@ -58,11 +56,6 @@ export class AuthenticatedComponent implements OnInit {
     this.selectedGranularity = this.defaultGranularity;
     this.selectedInstrument = this.defaultInstrument;
     this.selectedCount = this.defaultCount;
-
-    // A quick and clean range counter to be used for dropdown.
-    for (let i = 10; i > 0; i--) {
-      this.countLimit.push(i*10);
-    }
 
     this.token = this.user.getToken();
     this.listInstruments();
