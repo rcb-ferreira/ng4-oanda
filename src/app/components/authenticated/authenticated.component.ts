@@ -67,15 +67,6 @@ export class AuthenticatedComponent implements OnInit {
     this.token = this.user.getToken();
     this.listInstruments();
     this.getCandles(this.token, this.selectedInstrument, this.selectedGranularity, this.selectedCount);
-
-    // Fetch and update chart data every five seconds
-    setTimeout(() => {
-      this.count = 0;
-      setInterval(() => {
-
-        this.toggleInterval();
-      }, 5000);
-    }, 5000);
   }
 
   listInstruments() {
@@ -114,11 +105,6 @@ export class AuthenticatedComponent implements OnInit {
     this.count = 0;
     this.reset = setReset;
     this.getCandles(this.token, this.selectedInstrument, this.selectedGranularity, this.selectedCount, false);
-  }
-
-  toggleInterval() {
-    this.count = this.count + 1;
-    this.getCandles(this.token, this.selectedInstrument, this.selectedGranularity, this.selectedCount + this.count, false);
   }
 
   resetChart() {
