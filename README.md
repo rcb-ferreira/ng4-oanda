@@ -6,7 +6,7 @@ Simple example of what can be done with angular 4 and D3 charts, simply amazing.
 
 # Token
 
-- e4c9c0e09856e7f7c765dc26f6eefeb9-0b933821c678951e80e09698a8db87db
+- 6714f6713cbc75163129a6d3c8d2fea1-f6f6168a0dfbb27daf39533f9aad60e9
 
 # Contact
 
